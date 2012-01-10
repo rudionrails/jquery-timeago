@@ -101,11 +101,11 @@
     }
   });
 
-  $.fn.timeago = function() {
+  $.fn.timeago = function(settings) {
     var self = this;
     self.each(refresh);
 
-    var $s = $t.settings;
+    var $s = $.extend($t.settings, settings);
     if ($s.refreshMillis > 0) {
       setInterval(function() { self.each(refresh); }, $s.refreshMillis);
     }
